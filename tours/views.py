@@ -31,9 +31,7 @@ def departure_view(request: HttpRequest, departure_id: str):
         common_info = {'max_price': reduce(lambda a, b: a if (a > b) else b, [i['price'] for i in departure_tours]),
                        'min_price': reduce(lambda a, b: a if (a < b) else b, [i['price'] for i in departure_tours]),
                        'max_nights': reduce(lambda a, b: a if (a > b) else b, [i['nights'] for i in departure_tours]),
-                       'min_nights': reduce(lambda a, b: a if (a < b) else b, [i['nights'] for i in departure_tours])
-
-        }
+                       'min_nights': reduce(lambda a, b: a if (a < b) else b, [i['nights'] for i in departure_tours])}
     except KeyError:
         raise Http404
 
